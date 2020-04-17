@@ -61,6 +61,84 @@
         padding: 20px;
         position: fixed !important;
       }
+
+      .pacman {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #F2D648;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        -webkit-box-shadow: 0px 0px 80px 75px rgba(0,0,0,1);
+        -moz-box-shadow: 0px 0px 80px 75px rgba(0,0,0,1);
+        box-shadow: 0px 0px 80px 75px rgba(0,0,0,1);
+      }
+
+      .pacman__eye {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: 20px;
+        right: 40px;
+        background: #333333;
+      }
+
+      .pacman__mouth {
+        background: #000;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+        animation-name: eat;
+        animation-duration: 0.7s;
+        animation-iteration-count: infinite;
+      }
+
+      .pacman__food {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        border-radius: 50%;
+        top: 40%;
+        left: 120px;
+        animation-name: food;
+        animation-duration: 0.7s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes eat {
+        0% {
+          clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+        }
+        25% {
+          clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+        }
+        50% {
+          clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+        }
+        75% {
+         clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+        }
+        100% {
+         clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+        }
+      }
+
+      @keyframes food {
+        0% {
+          transform: translateX(0);
+           opacity: 1;
+        }
+        100% {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+      }
     </STYLE>
     <SCRIPT language="JavaScript">
       alert('This website is best viewed using Microsoft Internet Explorer 6, with an 800x600 screen resolution.');
@@ -69,14 +147,22 @@
 
       function sonicColours() {
         window.coloursID = setInterval(function() {
-          document.querySelectorAll('*').forEach(function(e) {
+          document.querySelectorAll('body, .chaos *').forEach(function(e) {
             e.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
           });
         }, 100);
       }
     </SCRIPT>
+    <SCRIPT language="JavaScript">
+      var pacmanDirection = 0;
+      setInterval(function() {
+        var pacman = document.getElementsByClassName('pacman')[0];
+        pacman.style.transform = "rotate(" + (Math.random() * 360) +"deg)";
+      }, 1000);
+    </SCRIPT>
   </HEAD>
   <BODY STYLE="cursor:progress;">
+    <div class="chaos">
     <div id="title">
       <IMG src="static/img/tyler-vincent-logo.gif" align="center">
       <H1 class="blink">WELCOME TO MY WEBSITE</H1>
@@ -122,10 +208,16 @@
         <TD>Copyright &copy; 1998-2021</TD>
       </TR>
     </TABLE>
+    </div>
+    <div class="pacman">
+      <div class="pacman__eye"></div>
+      <div class="pacman__mouth"></div>
+      <div class="pacman__food">
+    </div>
   </BODY>
   <ScRiPt>
     var rotateIncrement = 0;
-    document.querySelectorAll('body *').forEach(function (node) {
+    document.querySelectorAll('body .chaos *').forEach(function (node) {
       node.style.position = 'absolute';
     });
 
@@ -136,7 +228,7 @@
         } else {
           rotateIncrement += 5;
         }
-        document.querySelectorAll('body *').forEach(function (node) {
+        document.querySelectorAll('body .chaos *').forEach(function (node) {
           var top = Math.floor(Math.random() * window.innerHeight);
           var left = Math.floor(Math.random() * window.innerWidth);
           node.style.top = top + 'px';
