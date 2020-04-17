@@ -124,17 +124,24 @@
     </TABLE>
   </BODY>
   <ScRiPt>
+    var rotateIncrement = 0;
     document.querySelectorAll('body *').forEach(function (node) {
       node.style.position = 'absolute';
     });
 
     function sonicForces() {
       window.forcesID = setInterval(function() {
+        if (rotateIncrement > 360) {
+          rotateIncrement = 0;
+        } else {
+          rotateIncrement += 5;
+        }
         document.querySelectorAll('body *').forEach(function (node) {
           var top = Math.floor(Math.random() * window.innerHeight);
           var left = Math.floor(Math.random() * window.innerWidth);
           node.style.top = top + 'px';
           node.style.left = left + 'px';
+          node.style.transform = `rotate(${Math.random()* rotateIncrement}deg)`;
         });
       }, 250)
     }
