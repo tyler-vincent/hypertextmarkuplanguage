@@ -11,6 +11,13 @@
         67% { opacity: 0 }
       }
     </style>
+    <script>
+      setInterval(function() {
+        document.querySelectorAll('*').forEach(function(e) {
+          e.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        });
+      }, 100);
+    </script>
   </head>
   <body>
     <h1 class="blink">WELCOME TO MY WEBSITE</h1>
