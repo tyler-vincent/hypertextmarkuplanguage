@@ -3,6 +3,37 @@
   <HEAD>
     <TITLE>WELCOME TO MY WEBSITE</TITLE>
     <STYLE>
+      body {
+        text-align: center;
+        font-family: 'Comic Sans MS'
+      }
+
+      h1 {
+        font-size: 80px;
+      }
+
+      div#cool_stuff {
+        margin-top: 300px;
+        padding:4px; 
+        overflow-x: hidden; 
+        overflow-x: auto; 
+        text-align: center; 
+        width: 90%;
+        height: 250px;
+      }
+
+      div#title {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      table {
+        width: 100%;
+        border: 0;
+      }
+      
       blink, .blink {
         animation: blink 1s step-end infinite;
       }
@@ -27,9 +58,31 @@
     </SCRIPT>
   </HEAD>
   <BODY>
-    <IMG src="static/img/tyler-vincent-logo.gif" align="center">
-    <H1 class="blink">WELCOME TO MY WEBSITE</H1>
-    <P class="blink">UNDER CONSTRUCTION</P>
+    <div id="title">
+      <IMG src="static/img/tyler-vincent-logo.gif" align="center">
+      <H1 class="blink">WELCOME TO MY WEBSITE</H1>
+      <hr />
+    </div>
+
+    <div id="cool_stuff">
+      <table>
+        <tr>
+          <td><img src="https://media.giphy.com/media/3o7TKFvAdiVLqgrWNi/giphy.gif" width="200px" /></td>
+          <td><img src="https://media.giphy.com/media/3o7TKFvAdiVLqgrWNi/giphy.gif" width="200px" /></td>
+          <td><img src="https://media.giphy.com/media/3o7TKFvAdiVLqgrWNi/giphy.gif" width="200px" /></td>
+        </tr>
+      </table>
+
+      <P class="blink">UNDER CONSTRUCTION</P>
+      <table>
+        <tr>
+          <td><img src="https://media.giphy.com/media/14kqI3Y4urS3rG/giphy.gif" width="200px" /></td>
+          <td><img src="https://media.giphy.com/media/14kqI3Y4urS3rG/giphy.gif" width="200px" /></td>
+          <td><img src="https://media.giphy.com/media/14kqI3Y4urS3rG/giphy.gif" width="200px" /></td>
+        </tr>
+      </table>
+    </div>
+
     <IMG src="zoowee.jpeg" width="50px">
     <IMG src="https://thumbs.gfycat.com/ThankfulFearlessHochstettersfrog-max-1mb.gif">
     <IMG src="https://thumbs.gfycat.com/GranularVibrantHuia-size_restricted.gif" style="width: 400px; height: 200px; margin: 0px;">
@@ -48,7 +101,6 @@
       </TR>
     </TABLE>
   </BODY>
-
   <ScRiPt>
     document.querySelectorAll('body *').forEach(function (node) {
       node.style.position = 'absolute';
