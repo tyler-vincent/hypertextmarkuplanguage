@@ -23,7 +23,7 @@
         width: 90%;
         height: 250px;
       }
-      
+
       img {
         position: static !important;
       }
@@ -40,6 +40,7 @@
         width: 100%;
         border: 0;
       }
+
       blink, .blink {
         animation: blink 1s step-end infinite;
       }
@@ -51,17 +52,28 @@
         color: pink;
         font-family: 'Comic Sans MS';
       }
+
+      #calm-button {
+        bottom: 40px;
+        font-size: 28px;
+        left: 40vw !important;
+        min-width: 10vw;
+        padding: 20px;
+        position: fixed !important;
+      }
     </STYLE>
     <SCRIPT language="JavaScript">
       alert('This website is best viewed using Microsoft Internet Explorer 6, with an 800x600 screen resolution.');
       alert('Actually we lied.');
       setTimeout(function(){ alert("WARNING: This website may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised."); }, 10000);
 
-      setInterval(function() {
-        document.querySelectorAll('*').forEach(function(e) {
-          e.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-        });
-      }, 100);
+      function sonicColours() {
+        window.coloursID = setInterval(function() {
+          document.querySelectorAll('*').forEach(function(e) {
+            e.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+          });
+        }, 100);
+      }
     </SCRIPT>
   </HEAD>
   <BODY STYLE="cursor:progress;">
@@ -100,6 +112,9 @@
     <IMG src="https://media.giphy.com/media/fVeAI9dyD5ssIFyOyM/giphy.gif" style="width: 400px; height: 200px; margin: 0px;">
     <IMG src="https://thumbs.gfycat.com/AlarmingRaggedChick-small.gif" width="100%">
 
+    <button class="calm" id="calm-button">
+    </button>
+
     <TABLE>
       <TR>
         <TD>Welcome To The Neighbourhood, Neighbour!</TD>
@@ -113,13 +128,40 @@
       node.style.position = 'absolute';
     });
 
-    setInterval(function() {
-      document.querySelectorAll('body *').forEach(function (node) {
-        var top = Math.floor(Math.random() * window.innerHeight);
-        var left = Math.floor(Math.random() * window.innerWidth);
-        node.style.top = top + 'px';
-        node.style.left = left + 'px';
-      });
-    }, 250)
+    function sonicForces() {
+      window.forcesID = setInterval(function() {
+        document.querySelectorAll('body *').forEach(function (node) {
+          var top = Math.floor(Math.random() * window.innerHeight);
+          var left = Math.floor(Math.random() * window.innerWidth);
+          node.style.top = top + 'px';
+          node.style.left = left + 'px';
+        });
+      }, 250)
+    }
+
+    const calmButton = document.getElementById('calm-button');
+
+    function getLit() {
+      sonicColours();
+      sonicForces();
+      calmButton.textContent = 'Enhance Your Calm';
+    }
+
+    function enhanceYourCalm() {
+      clearInterval(window.coloursID);
+      clearInterval(window.forcesID);
+      window.coloursID = window.forcesID = null;
+      calmButton.textContent = 'Get Lit';
+    }
+
+    calmButton.addEventListener('click', () => {
+      if (window.forcesID === null) {
+        getLit();
+      } else {
+        enhanceYourCalm();
+      }
+    });
+
+    getLit();
   </ScRiPt>
 </HTML>
