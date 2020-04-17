@@ -14,10 +14,10 @@
 
       div#cool_stuff {
         margin-top: 300px;
-        padding:4px; 
-        overflow-x: hidden; 
-        overflow-x: auto; 
-        text-align: center; 
+        padding:4px;
+        overflow-x: hidden;
+        overflow-x: auto;
+        text-align: center;
         width: 90%;
         height: 250px;
       }
@@ -33,7 +33,6 @@
         width: 100%;
         border: 0;
       }
-      
       blink, .blink {
         animation: blink 1s step-end infinite;
       }
@@ -49,6 +48,7 @@
     <SCRIPT language="JavaScript">
       alert('This website is best viewed using Microsoft Internet Explorer 6, with an 800x600 screen resolution.');
       alert('Actually we lied.');
+      setTimeout(function(){ alert("WARNING: This website may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised."); }, 10000);
 
       setInterval(function() {
         document.querySelectorAll('*').forEach(function(e) {
@@ -57,7 +57,7 @@
       }, 100);
     </SCRIPT>
   </HEAD>
-  <BODY>
+  <BODY STYLE="cursor:progress;">
     <div id="title">
       <IMG src="static/img/tyler-vincent-logo.gif" align="center">
       <H1 class="blink">WELCOME TO MY WEBSITE</H1>
