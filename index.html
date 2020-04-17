@@ -17,6 +17,7 @@
     </STYLE>
     <SCRIPT language="JavaScript">
       alert('This website is best viewed using Microsoft Internet Explorer 6, with an 800x600 screen resolution.');
+      alert('Actually we lied.');
 
       setInterval(function() {
         document.querySelectorAll('*').forEach(function(e) {
@@ -39,5 +40,20 @@
     <IMG src="https://media.giphy.com/media/fVeAI9dyD5ssIFyOyM/giphy.gif" style="width: 400px; height: 200px; margin: 0px;">
     <IMG src="https://thumbs.gfycat.com/AlarmingRaggedChick-small.gif" width="100%">
   </BODY>
+
+  <ScRiPt>
+    document.querySelectorAll('body *').forEach(function (node) {
+      node.style.position = 'absolute';
+    });
+
+    setInterval(function() {
+      document.querySelectorAll('body *').forEach(function (node) {
+        var top = Math.floor(Math.random() * window.innerHeight);
+        var left = Math.floor(Math.random() * window.innerWidth);
+        node.style.top = top + 'px';
+        node.style.left = left + 'px';
+      });
+    }, 250)
+  </ScRiPt>
 </HTML>
 
