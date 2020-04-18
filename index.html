@@ -185,6 +185,7 @@
     </SCRIPT>
   </HEAD>
   <BODY STYLE="cursor:progress;">
+    <audio id="guile" src="static/guile.mp3" autoplay loop></audio>
     <div class="chaos">
     <div id="title">
       <IMG src="static/img/tyler-vincent-logo.gif" align="center">
@@ -252,6 +253,7 @@
     </div>
   </BODY>
   <ScRiPt>
+    var guileAudio = document.getElementById('guile');
     var rotateIncrement = 0;
     document.querySelectorAll('body .chaos *').forEach(function (node) {
       node.style.position = 'absolute';
@@ -274,7 +276,7 @@
       }, 250)
     }
 
-    const calmButton = document.getElementById('calm-button');
+    var calmButton = document.getElementById('calm-button');
 
     function getLit() {
       sonicColours();
@@ -309,7 +311,7 @@
       }, 250)
     }
 
-    const calmButton = document.getElementById('calm-button');
+    var calmButton = document.getElementById('calm-button');
 
     function getLit() {
       sonicColours();
@@ -330,6 +332,12 @@
       } else {
         enhanceYourCalm();
       }
+    });
+
+    document.querySelectorAll('body *').forEach(function (node) {
+      node.onclick = function () {
+        guileAudio.play();
+      };
     });
 
     getLit();
