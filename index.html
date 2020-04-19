@@ -24,13 +24,6 @@
         height: 250px;
       }
 
-      
-      table#hitcounter {
-        position: absolute !important;
-        top: 20px;
-        right: 20px;
-      }
-
       img {
         position: static !important;
       }
@@ -146,15 +139,6 @@
           opacity: 0;
         }
       }
-
-      #calm-button {
-        bottom: 40px;
-        font-size: 28px;
-        left: 40vw !important;
-        min-width: 10vw;
-        padding: 20px;
-        position: fixed !important;
-      }
     </STYLE>
     <SCRIPT language="JavaScript">
       alert('This website is best viewed using Microsoft Internet Explorer 6, with an 800x600 screen resolution.');
@@ -175,13 +159,6 @@
         var pacman = document.getElementsByClassName('pacman')[0];
         pacman.style.transform = "rotate(" + (Math.random() * 360) +"deg)";
       }, 1000);
-      function sonicColours() {
-        window.coloursID = setInterval(function() {
-          document.querySelectorAll('*').forEach(function(e) {
-            e.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-          });
-        }, 100);
-      }
     </SCRIPT>
   </HEAD>
   <BODY STYLE="cursor:progress;">
@@ -197,15 +174,6 @@
       src="//rcm-na.amazon-adsystem.com/e/cm?o=15&p=48&l=ur1&category=amazonhomepage&f=ifr&linkID=f33b0f8a208dd46371208fe217633414&t=canadiantech-20&tracking_id=canadiantech-20"
       width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 
-    <TABLE id="hitcounter">
-      <TR width="600px">
-        <TD>
-          <A href="https://www.webfreecounter.com/" target="_blank">
-            <IMG src="https://www.cutercounter.com/hits.php?id=hmxxxxko&nd=6&style=22">
-        </TD>
-      </TR>
-    </TABLE>
- 
     <div id="cool_stuff">
       <table>
         <tr>
@@ -272,41 +240,6 @@
           node.style.top = top + 'px';
           node.style.left = left + 'px';
           node.style.transform = `rotate(${Math.random()* rotateIncrement}deg)`;
-        });
-      }, 250)
-    }
-
-    var calmButton = document.getElementById('calm-button');
-
-    function getLit() {
-      sonicColours();
-      sonicForces();
-      calmButton.textContent = 'Enhance Your Calm';
-    }
-
-    function enhanceYourCalm() {
-      clearInterval(window.coloursID);
-      clearInterval(window.forcesID);
-      window.coloursID = window.forcesID = null;
-      calmButton.textContent = 'Get Lit';
-    }
-
-    calmButton.addEventListener('click', () => {
-      if (window.forcesID === null) {
-        getLit();
-      } else {
-        enhanceYourCalm();
-      }
-    });
-
-    getLit();
-    function sonicForces() {
-      window.forcesID = setInterval(function() {
-        document.querySelectorAll('body *').forEach(function (node) {
-          var top = Math.floor(Math.random() * window.innerHeight);
-          var left = Math.floor(Math.random() * window.innerWidth);
-          node.style.top = top + 'px';
-          node.style.left = left + 'px';
         });
       }, 250)
     }
